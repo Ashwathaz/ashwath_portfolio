@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  portfolio:
+    build: .
+    container_name: ashwath_portfolio
+    ports:
+      - "5632:5632"
+    restart: always
