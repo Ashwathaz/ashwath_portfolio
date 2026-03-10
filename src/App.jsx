@@ -71,14 +71,32 @@ function App() {
 
   const projects = [
     {
+      title: 'ECOMMERCE WEBSITE FOR GAMING ACCESSORIES',
+      date: 'Jan 2024 - May 2024',
+      image: '/project3.png',
+      tags: ['React', 'CSS3', 'JavaScript'], // Kept in data but will not render
+      points: [
+        'Advanced product search and categorization system for gaming gear',
+        'Interactive UI components with smooth gaming-inspired animations',
+        'High-performance shopping cart with real-time inventory updates',
+        'Integrated secure payment gateway simulation for seamless checkout',
+        'User-centric dark theme optimized for long-session gaming enthusiasts',
+        'Responsive layout ensuring compatibility across all device sizes'
+      ],
+      link: null
+    },
+    {
       title: 'AI Resume & ATS Analyzer',
       date: 'Nov 2025 - Present',
       image: '/project1.png',
       tags: ['Python', 'Streamlit', 'NLP', 'Docker'],
       points: [
-        'AI-powered resume analysis web application',
-        'Analyzes ATS compatibility and skill gaps',
-        'Containerized for scalable deployment'
+        'Advanced NLP algorithms for deep resume parsing and analysis',
+        'Intelligent ATS score calculation based on job descriptions',
+        'Personalized skill gap analysis with improvement recommendations',
+        'Production-ready Docker environment for scalable deployment',
+        'Intuitive data visualization for resume performance metrics',
+        'Automated feedback generation for optimal resume tailoring'
       ],
       link: null
     },
@@ -88,23 +106,14 @@ function App() {
       image: '/project2.png',
       tags: ['Python', 'Flask', 'Google Gemini'],
       points: [
-        'AI university assistant for student queries',
-        'Real-time responses via Gemini API',
-        'Interactive and responsive interface'
+        'Large Language Model integration via Google Gemini Pro API',
+        'Real-time academic inquiry handling for university students',
+        'Multi-turn conversation management for complex user queries',
+        'Context-aware response generation with university-specific data',
+        'Modern, glassmorphism-based UI for enhanced user engagement',
+        'Optimized backend architecture for low-latency response delivery'
       ],
       link: 'https://sathyabama-chatbott.onrender.com'
-    },
-    {
-      title: 'Gaming Accessories E-shop',
-      date: 'Jan 2024 - May 2024',
-      image: '/project3.png',
-      tags: ['React', 'CSS3', 'JavaScript'],
-      points: [
-        'Responsive eCommerce with dynamic filtering',
-        'Component-based UI architecture',
-        'Modern, dark-themed gaming aesthetic'
-      ],
-      link: null
     }
   ];
 
@@ -308,7 +317,7 @@ function App() {
                   <span className="section-label">Portfolio</span>
                   <h2 className="section-title">Technical Projects</h2>
                 </div>
-                <div className="carousel-container" style={{ position: 'relative', width: '100%', height: '700px', display: 'flex', justifyContent: 'center', alignItems: 'center', perspective: '1500px' }}>
+                <div className="carousel-container" style={{ position: 'relative', width: '100%', height: '850px', display: 'flex', justifyContent: 'center', alignItems: 'center', perspective: '1500px' }}>
                   {projects.map((project, idx) => {
                     let position = 'hidden';
                     if (idx === activeProject) position = 'active';
@@ -329,12 +338,7 @@ function App() {
                           className="project-image"
                           onError={(e) => e.target.style.display = 'none'}
                         />
-                        <div className="project-tags">
-                          {project.tags.map((tag, i) => (
-                            <span key={i} className="tag">{tag}</span>
-                          ))}
-                        </div>
-                        <h3 style={{ marginBottom: '1rem' }}>{project.title}</h3>
+                        <h3 style={{ marginBottom: '1rem', marginTop: '1.5rem' }}>{project.title}</h3>
                         <ul style={{ listStyle: 'none', flex: 1 }}>
                           {project.points.map((pt, i) => (
                             <li key={i} style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '0.5rem', display: 'flex', gap: '0.5rem' }}>
