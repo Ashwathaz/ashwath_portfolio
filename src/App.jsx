@@ -3,12 +3,15 @@ import {
   Moon, Sun, Download, Mail, Github, Linkedin, ExternalLink,
   Code, Database, Cloud, Box, Activity, Terminal, Cpu, Ship,
   Award, BookOpen, Briefcase, Zap, ChevronRight, Gamepad2,
-  Trophy, Crosshair, Target, Sword, Mountain, Disc
+  Trophy, Crosshair, Target, Sword, Mountain, Disc, Instagram, Camera
 } from 'lucide-react';
 import './index.css';
+import resumePdf from './assets/Ashwath_Ram_Resume.pdf';
+import NetworkBg from './NetworkBg';
 
 function App() {
   const [theme, setTheme] = useState('devops');
+  const [activeProject, setActiveProject] = useState(0);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -40,12 +43,15 @@ function App() {
       { name: 'RDR2', rank: 'Story Explorer', icon: <Mountain size={24} />, desc: 'A breathtaking masterpiece of storytelling.' },
       { name: 'God of War', rank: 'Axe Master', icon: <Sword size={24} />, desc: 'Epic battles and powerful emotions.' },
       { name: 'Ghost of Tsushima', rank: 'Legendary Samurai', icon: <Sword size={24} />, desc: 'The way of the ghost in a beautiful world.' },
+      { name: 'Ghost of Yōtei', rank: 'Wandering Ronin', icon: <Sword size={24} />, desc: 'A new legend begins.' },
       { name: 'GoW Ragnarok', rank: 'Path to Valhalla', icon: <Sword size={24} />, desc: 'The conclusion of a legendary saga.' },
+      { name: 'God of War III', rank: 'Spartan Rage', icon: <Sword size={24} />, desc: 'The ultimate revenge of Kratos.' },
+      { name: 'GTA 5', rank: 'Los Santos Kingpin', icon: <Target size={24} />, desc: 'Heists, cars, and endless chaos.' },
       { name: 'BGMI', rank: '1x Conqueror', icon: <Target size={24} />, desc: 'Surviving till the end for the chicken dinner.' },
     ],
     sports: [
       { name: 'Chess', rank: 'Strategic Thinker', icon: <Trophy size={24} /> },
-      { name: 'Tennis', rank: 'Baseline Player', icon: <Disc size={24} /> },
+      { name: 'Tennis', rank: 'Volley Player', desc: 'Push to finish', icon: <Disc size={24} /> },
     ],
     foodie: [
       { name: 'Chicken Biryani', icon: '🍗', type: 'The King of Meals' },
@@ -58,7 +64,7 @@ function App() {
       { name: 'Grill Chicken', icon: '🍖', type: 'Smoky Goodness' },
     ],
     ambitions: [
-      { name: 'Indian Army', icon: <Award size={24} />, desc: 'My dream to serve the nation with honor.' },
+      { name: 'Indian Army', icon: <Award size={24} />, desc: 'SERVE WITH HONOR' },
       { name: 'Gaming Cafe', icon: <Gamepad2 size={24} />, desc: 'Vision to build a hub for local esports.' },
     ]
   };
@@ -104,6 +110,7 @@ function App() {
 
   return (
     <>
+      {theme === 'devops' && <NetworkBg />}
       <div className="bg-shapes">
         <div className="shape shape-1"></div>
         <div className="shape shape-2"></div>
@@ -114,7 +121,7 @@ function App() {
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: 'none', padding: 0 }}>
           <div className="brand">
             <div className="brand-dot"></div>
-            ASHWATH RAM
+            {theme === 'devops' ? 'ASHWATH RAM' : 'ASHZ ⚡ ZEUS'}
           </div>
 
           <div className="theme-switch-container">
@@ -165,11 +172,14 @@ function App() {
               )}
 
               <div className="btn-group">
-                <a href={theme === 'devops' ? "/Ashwath_Ram_Resume.pdf" : "#blog"} download={theme === 'devops'} className="btn btn-primary">
-                  {theme === 'devops' ? <><Download size={20} /> Download Resume</> : <><BookOpen size={20} /> Read My Blog</>}
-                </a>
-                <a href="mailto:ashwathaz@zohomail.in" className="btn btn-secondary">
-                  <Mail size={20} /> {theme === 'devops' ? "Get in Touch" : "Say Hello"}
+                {theme === 'devops' && (
+                  <a href={resumePdf} download="Ashwath_Ram_Resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                    <Download size={20} /> Download Resume
+                  </a>
+                )}
+                <a href={theme === 'devops' ? "mailto:ashwathaz@zohomail.in" : "https://instagram.com/ig._ashz"} target={theme === 'devops' ? undefined : "_blank"} rel="noopener noreferrer" className="btn btn-secondary">
+                  {theme === 'devops' ? <Mail size={20} /> : <Instagram size={20} />}
+                  {theme === 'devops' ? "Get in Touch" : "Follow @ig._ashz"}
                 </a>
               </div>
 
@@ -298,37 +308,49 @@ function App() {
                   <span className="section-label">Portfolio</span>
                   <h2 className="section-title">Technical Projects</h2>
                 </div>
-                <div className="grid grid-cols-3">
-                  {projects.map((project, idx) => (
-                    <div className="card" key={idx} style={{ display: 'flex', flexDirection: 'column' }}>
-                      {/* Image handle with error fallback */}
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="project-image"
-                        onError={(e) => e.target.style.display = 'none'}
-                      />
-                      <div className="project-tags">
-                        {project.tags.map((tag, i) => (
-                          <span key={i} className="tag">{tag}</span>
-                        ))}
+                <div className="carousel-container" style={{ position: 'relative', width: '100%', height: '700px', display: 'flex', justifyContent: 'center', alignItems: 'center', perspective: '1500px' }}>
+                  {projects.map((project, idx) => {
+                    let position = 'hidden';
+                    if (idx === activeProject) position = 'active';
+                    else if (idx === (activeProject === 0 ? projects.length - 1 : activeProject - 1)) position = 'prev';
+                    else if (idx === (activeProject === projects.length - 1 ? 0 : activeProject + 1)) position = 'next';
+
+                    return (
+                      <div
+                        className={`card carousel-slide ${position}`}
+                        key={idx}
+                        onClick={() => setActiveProject(idx)}
+                        style={{ display: 'flex', flexDirection: 'column' }}
+                      >
+                        {/* Image handle with error fallback */}
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="project-image"
+                          onError={(e) => e.target.style.display = 'none'}
+                        />
+                        <div className="project-tags">
+                          {project.tags.map((tag, i) => (
+                            <span key={i} className="tag">{tag}</span>
+                          ))}
+                        </div>
+                        <h3 style={{ marginBottom: '1rem' }}>{project.title}</h3>
+                        <ul style={{ listStyle: 'none', flex: 1 }}>
+                          {project.points.map((pt, i) => (
+                            <li key={i} style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '0.5rem', display: 'flex', gap: '0.5rem' }}>
+                              <ChevronRight size={14} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
+                              <span>{pt}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {project.link && (
+                          <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ marginTop: '1.5rem', padding: '0.75rem', width: '100%', justifyContent: 'center' }}>
+                            <ExternalLink size={16} /> View Project
+                          </a>
+                        )}
                       </div>
-                      <h3 style={{ marginBottom: '1rem' }}>{project.title}</h3>
-                      <ul style={{ listStyle: 'none', flex: 1 }}>
-                        {project.points.map((pt, i) => (
-                          <li key={i} style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '0.5rem', display: 'flex', gap: '0.5rem' }}>
-                            <ChevronRight size={14} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
-                            <span>{pt}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      {project.link && (
-                        <a href={project.link} target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ marginTop: '1.5rem', padding: '0.75rem', width: '100%', justifyContent: 'center' }}>
-                          <ExternalLink size={16} /> View Project
-                        </a>
-                      )}
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </section>
 
@@ -417,27 +439,48 @@ function App() {
                         {sport.icon}
                       </div>
                       <h3 style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}>{sport.name}</h3>
-                      <p>{sport.rank}</p>
+                      <p style={{ fontWeight: 'bold' }}>{sport.rank}</p>
+                      {sport.desc && <p style={{ marginTop: '0.5rem', opacity: 0.8, fontStyle: 'italic' }}>"{sport.desc}"</p>}
                     </div>
                   ))}
                 </div>
               </section>
-              <section className="reveal visible" id="blog">
-                <div className="section-header">
-                  <span className="section-label">Writings</span>
-                  <h2 className="section-title">Personal Blog</h2>
+              <section className="reveal visible" id="gallery">
+                <div className="section-header" style={{ textAlign: 'center' }}>
+                  <span className="section-label">Moments</span>
+                  <h2 className="section-title">Life Captured</h2>
+                  <p style={{ marginTop: '1rem' }}>
+                    A glimpse into my adventures. Follow me on <a href="https://instagram.com/ig._ashz" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--accent-color)', textDecoration: 'none', fontWeight: 'bold' }}>@ig._ashz <Instagram size={14} style={{ display: 'inline', verticalAlign: 'middle', marginTop: '-2px' }} /></a>
+                  </p>
                 </div>
-                <div className="grid grid-cols-2">
+
+                <div className="grid grid-cols-3" style={{ marginBottom: '3rem' }}>
                   <div className="card">
-                    <span className="timeline-tag">Life Update</span>
-                    <h3>Why I love combining DevOps with Gaming</h3>
-                    <p style={{ marginTop: '1rem' }}>Exploring the parallels between managing complex infrastructure and strategic gameplay.</p>
-                    <a href="#" className="btn btn-secondary" style={{ marginTop: '2rem' }}>Read More <ChevronRight size={16} /></a>
+                    <Camera size={24} style={{ color: 'var(--accent-color)', marginBottom: '1rem' }} />
+                    <h3 style={{ marginBottom: '0.5rem' }}>Exploration</h3>
+                    <p style={{ color: 'var(--text-muted)' }}>Discovering new places, trekking through mountains, and taking in the fresh air.</p>
                   </div>
-                  <div className="card" style={{ opacity: 0.7 }}>
-                    <span className="timeline-tag">Gaming</span>
-                    <h3>My Journey to Diamond 1 in Valorant</h3>
-                    <p style={{ marginTop: '1rem' }}>Coming soon: A deep dive into my training routine and rank-up strategy.</p>
+                  <div className="card">
+                    <Mountain size={24} style={{ color: 'var(--accent-color)', marginBottom: '1rem' }} />
+                    <h3 style={{ marginBottom: '0.5rem' }}>Nature</h3>
+                    <p style={{ color: 'var(--text-muted)' }}>Finding peace in the beauty of landscapes and capturing moments in time.</p>
+                  </div>
+                  <div className="card">
+                    <Sun size={24} style={{ color: 'var(--accent-color)', marginBottom: '1rem' }} />
+                    <h3 style={{ marginBottom: '0.5rem' }}>Lifestyle</h3>
+                    <p style={{ color: 'var(--text-muted)' }}>From everyday routines to extraordinary experiences, documented and shared.</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-3" style={{ gap: '1.5rem' }}>
+                  <div style={{ borderRadius: '12px', overflow: 'hidden', height: '350px' }}>
+                    <img src="/ashz1.jpg" alt="Gallery 1" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s ease' }} className="hover-zoom" />
+                  </div>
+                  <div style={{ borderRadius: '12px', overflow: 'hidden', height: '350px' }}>
+                    <img src="/ashz2.jpg" alt="Gallery 2" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s ease' }} className="hover-zoom" />
+                  </div>
+                  <div style={{ borderRadius: '12px', overflow: 'hidden', height: '350px' }}>
+                    <img src="/ashz3.jpg" alt="Gallery 3" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.3s ease' }} className="hover-zoom" />
                   </div>
                 </div>
               </section>

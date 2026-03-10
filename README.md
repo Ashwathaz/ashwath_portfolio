@@ -1,16 +1,62 @@
-# React + Vite
+# Ashwath Ram - Personal Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic, dual-themed personal and professional portfolio built with React and Vite. It features a sleek "DevOps" dark mode for professional experience and a "Personal" light mode for hobbies, gaming, and photography.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Dual-Theme Design**: Toggle seamlessly between a Professional DevOps profile (Dark Mode) and a Personal space (Light Mode).
+- **Interactive UI**: Responsive layouts, CSS animations, and smooth transitions.
+- **Project Showcase**: Display of technical projects, certifications, and skills.
+- **Personal Gallery**: A life-captured photo gallery linked to Instagram.
+- **Gaming & Hobbies**: Track gaming milestones and personal interests.
 
-## React Compiler
+## 🛠️ Built With
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **[React](https://react.dev/)**: Frontend library for building user interfaces.
+- **[Vite](https://vitejs.dev/)**: Next-generation, lightning-fast frontend tooling.
+- **[Lucide React](https://lucide.dev/)**: Beautiful, crisp, and customizable vector icons.
+- **Vanilla CSS**: Custom styling architecture utilizing CSS variables for dynamic theming, modern layout principles (Flexbox/Grid), and keyframe animations.
 
-## Expanding the ESLint configuration
+## ⚙️ Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+To get a local copy up and running, follow these simple steps.
+
+### Prerequisites
+
+You need to have Node.js installed on your machine.
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+
+### Installation
+
+1. Clone the repository or extract the project files.
+2. Open your terminal and navigate to the project directory:
+   ```bash
+   cd ashwath_portfolio
+   ```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running Locally
+
+To start the development server, run:
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173/](http://localhost:5173/) in your browser to view the application. The page will reload if you make edits.
+
+### Building for Production
+
+To create an optimized production build, run:
+```bash
+npm run build
+```
+This will generate a `dist` folder containing the compiled assets ready for deployment.
+
+## 👤 Author
+
+- GitHub: [@Ashwathaz](https://github.com/Ashwathaz)
+- LinkedIn: [Ashwath Ram](https://www.linkedin.com/in/ashz3003/)
+- Instagram: [@ig._ashz](https://instagram.com/ig._ashz)
