@@ -8,6 +8,7 @@ import {
 import './index.css';
 import resumePdf from './assets/Ashwath_Ram_Resume.pdf';
 import NetworkBg from './NetworkBg';
+import CurvyLinesBg from './CurvyLinesBg';
 
 function App() {
   const [theme, setTheme] = useState('devops');
@@ -76,14 +77,14 @@ function App() {
       image: '/project3.png',
       tags: ['React', 'CSS3', 'JavaScript'], // Kept in data but will not render
       points: [
-        'Advanced product search and categorization system for gaming gear',
+        'Efficient product search and categorization system for gaming gear',
         'Interactive UI components with smooth gaming-inspired animations',
         'High-performance shopping cart with real-time inventory updates',
         'Integrated secure payment gateway simulation for seamless checkout',
         'User-centric dark theme optimized for long-session gaming enthusiasts',
         'Responsive layout ensuring compatibility across all device sizes'
       ],
-      link: null
+      link: 'https://strixstore.duckdns.org/'
     },
     {
       title: 'AI Resume & ATS Analyzer',
@@ -91,14 +92,14 @@ function App() {
       image: '/project1.png',
       tags: ['Python', 'Streamlit', 'NLP', 'Docker'],
       points: [
-        'Advanced NLP algorithms for deep resume parsing and analysis',
+        'Core NLP algorithms for deep resume parsing and analysis',
         'Intelligent ATS score calculation based on job descriptions',
         'Personalized skill gap analysis with improvement recommendations',
         'Production-ready Docker environment for scalable deployment',
         'Intuitive data visualization for resume performance metrics',
         'Automated feedback generation for optimal resume tailoring'
       ],
-      link: null
+      link: 'https://ai-resume-analyzer.duckdns.org/'
     },
     {
       title: 'Sathyabama AI Chatbot',
@@ -113,13 +114,13 @@ function App() {
         'Modern, glassmorphism-based UI for enhanced user engagement',
         'Optimized backend architecture for low-latency response delivery'
       ],
-      link: 'https://sathyabama-chatbott.onrender.com'
+      link: 'https://sist-chatbot.duckdns.org/'
     }
   ];
 
   return (
     <>
-      {theme === 'devops' && <NetworkBg />}
+      {theme === 'devops' ? <NetworkBg theme={theme} /> : <CurvyLinesBg />}
       <div className="bg-shapes">
         <div className="shape shape-1"></div>
         <div className="shape shape-2"></div>
@@ -129,7 +130,7 @@ function App() {
       <header>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: 'none', padding: 0 }}>
           <div className="brand">
-            <div className="brand-dot"></div>
+            <Zap size={24} fill="var(--accent-color)" style={{ color: 'var(--accent-color)', filter: 'drop-shadow(0 0 10px var(--accent-glow))' }} />
             {theme === 'devops' ? 'ASHWATH RAM' : 'ASHZ ⚡ ZEUS'}
           </div>
 
@@ -156,12 +157,11 @@ function App() {
                     <Zap size={14} /> Available for DevOps Roles
                   </div>
                   <h1>
-                    I architect <span className="gradient-text">resilient</span> cloud systems
+                    Cloud Engineer | <span className="gradient-text">DevOps</span> Enthusiast
                   </h1>
                   <p>
-                    Focused on AWS cloud solutions and automation through Jenkins pipelines.
-                    Building reliable CI/CD flows and managing containerized applications with a
-                    foundational understanding of GCP and Azure.
+                    Cloud and DevOps enthusiast focused on AWS infrastructure and containerized applications. 
+                    Currently exploring automation tools and gaining experience with GCP and Azure environments.
                   </p>
                 </>
               ) : (
@@ -203,10 +203,7 @@ function App() {
                       <h3>4</h3>
                       <p>Active Projects</p>
                     </div>
-                    <div className="stat-item">
-                      <h3>Active</h3>
-                      <p>CI/CD Pipelines</p>
-                    </div>
+
                   </>
                 ) : (
                   <>
@@ -258,11 +255,11 @@ function App() {
                       <ul style={{ listStyle: 'none' }}>
                         <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)' }}>
                           <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0 }} />
-                          <span>Mastering Docker, Terraform, and CI/CD automation.</span>
+                          <span>Learning Docker, Terraform, CI/CD automation, and deployments.</span>
                         </li>
                         <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
                           <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0 }} />
-                          <span>Implementing Linux operations and advanced monitoring with Grafana.</span>
+                          <span>Learning Linux operations and system monitoring with Grafana.</span>
                         </li>
                       </ul>
                     </div>
@@ -302,10 +299,10 @@ function App() {
                     </p>
                     <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
                       <div className="skill-card" style={{ padding: '0.75rem 1.25rem' }}>
-                        <Cloud size={18} /> Cloud Native
+                        <Cloud size={18} /> Cloud Scalability
                       </div>
                       <div className="skill-card" style={{ padding: '0.75rem 1.25rem' }}>
-                        <Activity size={18} /> CI/CD
+                        <Zap size={18} /> Automation Foundations
                       </div>
                     </div>
                   </div>
@@ -316,6 +313,9 @@ function App() {
                 <div className="section-header">
                   <span className="section-label">Portfolio</span>
                   <h2 className="section-title">Technical Projects</h2>
+                  <p style={{ marginTop: '1rem', color: 'var(--text-muted)' }}>
+                    Each of these projects is fully containerized using Docker to ensure portable and production-ready deployments.
+                  </p>
                 </div>
                 <div className="carousel-container" style={{ position: 'relative', width: '100%', height: '850px', display: 'flex', justifyContent: 'center', alignItems: 'center', perspective: '1500px' }}>
                   {projects.map((project, idx) => {
@@ -504,9 +504,7 @@ function App() {
               <Mail size={28} />
             </a>
           </div>
-          <p style={{ opacity: 0.6, fontSize: '1rem' }}>
-            © {new Date().getFullYear()} Ashwath Ram. {theme === 'devops' ? "Engineered with Passion." : "Living with Purpose."}
-          </p>
+
         </footer>
       </div>
     </>

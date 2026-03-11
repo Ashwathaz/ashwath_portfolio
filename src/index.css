@@ -314,10 +314,10 @@ header {
 
 /* Typography */
 h1 {
-  font-size: clamp(3rem, 10vw, 5.5rem);
+  font-size: clamp(3rem, 8vw, 5rem);
   font-weight: 900;
-  line-height: 0.95;
-  letter-spacing: -3px;
+  line-height: 1.2;
+  letter-spacing: -1px;
   margin-bottom: 2rem;
 }
 
