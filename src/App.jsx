@@ -157,10 +157,10 @@ function App() {
                     <Zap size={14} /> Available for DevOps Roles
                   </div>
                   <h1>
-                    Cloud Engineer | <span className="gradient-text">DevOps</span> Enthusiast
+                    Cloud Engineer | <span className="gradient-text">DevOps</span> Practitioner
                   </h1>
                   <p>
-                    Cloud and DevOps enthusiast focused on AWS infrastructure and containerized applications. 
+                    Cloud and DevOps practitioner focused on AWS infrastructure and containerized applications. 
                     Currently exploring automation tools and gaining experience with GCP and Azure environments.
                   </p>
                 </>
@@ -170,7 +170,7 @@ function App() {
                     <BookOpen size={14} /> Personal Blog & Hobbies
                   </div>
                   <h1>
-                    Beyond the <span className="gradient-text">code</span>, I explore
+                    Beyond the <span className="gradient-text">Build</span>, I explore
                   </h1>
                   <p>
                     Passionate gamer, sports enthusiast, and life explorer.
@@ -254,12 +254,20 @@ function App() {
                       <h4 style={{ color: 'var(--accent-color)', marginBottom: '1rem' }}>DevOps Intern</h4>
                       <ul style={{ listStyle: 'none' }}>
                         <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)' }}>
-                          <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0 }} />
-                          <span>Learning Docker, Terraform, CI/CD automation, and deployments.</span>
+                          <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
+                          <span>Streamlined deployment processes by containerizing applications with Docker and establishing automated CI/CD pipelines alongside Terraform-based infrastructure.</span>
                         </li>
-                        <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
-                          <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0 }} />
-                          <span>Learning Linux operations and system monitoring with Grafana.</span>
+                        <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)', marginTop: '0.75rem' }}>
+                          <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
+                          <span>Architected and managed scalable cloud environments on AWS, utilizing core services like EC2, S3, IAM, and VPC.</span>
+                        </li>
+                        <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)', marginTop: '0.75rem' }}>
+                          <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
+                          <span>Maintained robust system performance through hands-on Linux administration, handling vital server configuration, networking, and user management tasks.</span>
+                        </li>
+                        <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)', marginTop: '0.75rem' }}>
+                          <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
+                          <span>Ensured system reliability and visibility by building out comprehensive monitoring and visualization dashboards using Prometheus and Grafana.</span>
                         </li>
                       </ul>
                     </div>
@@ -497,7 +505,7 @@ function App() {
             <a href="https://www.linkedin.com/in/ashz3003/" target="_blank" rel="noopener noreferrer" className="social-link">
               <Linkedin size={28} />
             </a>
-            <a href="https://github.com/Ashwathaz" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href={theme === 'devops' ? "https://github.com/Ashwathaz" : "https://github.com/Ashz-zeus"} target="_blank" rel="noopener noreferrer" className="social-link">
               <Github size={28} />
             </a>
             <a href="mailto:ashwathaz@zohomail.in" className="social-link">
