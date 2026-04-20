@@ -7,8 +7,8 @@ import {
 } from 'lucide-react';
 import './index.css';
 import resumePdf from './assets/Ashwath_Ram_Resume.pdf';
-import NetworkBg from './NetworkBg';
-import CurvyLinesBg from './CurvyLinesBg';
+import PremiumVibeBg from './PremiumVibeBg';
+import MiniTetris from './MiniTetris';
 
 function App() {
   const [theme, setTheme] = useState('devops');
@@ -120,12 +120,7 @@ function App() {
 
   return (
     <>
-      {theme === 'devops' ? <NetworkBg theme={theme} /> : <CurvyLinesBg />}
-      <div className="bg-shapes">
-        <div className="shape shape-1"></div>
-        <div className="shape shape-2"></div>
-        <div className="shape shape-3"></div>
-      </div>
+      <PremiumVibeBg theme={theme} />
 
       <header>
         <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', maxWidth: 'none', padding: 0 }}>
@@ -134,14 +129,34 @@ function App() {
             {theme === 'devops' ? 'ASHWATH RAM' : 'ASHZ ⚡ ZEUS'}
           </div>
 
-          <div className="theme-switch-container">
-            <span className={`theme-label ${theme === 'devops' ? 'active' : ''}`}>DevOps</span>
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
-              <div className="toggle-knob">
-                {theme === 'devops' ? <Terminal size={12} /> : <BookOpen size={12} />}
-              </div>
-            </button>
-            <span className={`theme-label ${theme === 'personal' ? 'active' : ''}`}>Personal</span>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.5rem', position: 'relative' }}>
+            <div className="theme-switch-container">
+              <span className={`theme-label ${theme === 'devops' ? 'active' : ''}`}>DevOps</span>
+              <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
+                <div className="toggle-knob">
+                  {theme === 'devops' ? <Terminal size={12} /> : <BookOpen size={12} />}
+                </div>
+              </button>
+              <span className={`theme-label ${theme === 'personal' ? 'active' : ''}`}>Personal</span>
+            </div>
+            <div className="mobile-hint" style={{
+              position: 'absolute',
+              top: '100%',
+              right: 0,
+              marginTop: '0.5rem',
+              fontSize: '0.7rem',
+              color: 'var(--text-muted)',
+              opacity: 0.8,
+              textAlign: 'right',
+              whiteSpace: 'nowrap',
+              background: 'var(--card-bg)',
+              padding: '0.25rem 0.5rem',
+              borderRadius: '4px',
+              border: '1px solid var(--card-border)',
+              backdropFilter: 'blur(5px)'
+            }}>
+              📱 Mobile: Request Desktop Site or tilt to Landscape
+            </div>
           </div>
         </div>
       </header>
@@ -249,7 +264,7 @@ function App() {
                   <div className="card">
                     <div className="timeline-item">
                       <div className="timeline-dot"></div>
-                      <span className="timeline-tag">Dec 2024 - Present</span>
+                      <span className="timeline-tag">Dec 2025 - Mar 2026</span>
                       <h3>ARCHON Platform 3 Solutions</h3>
                       <h4 style={{ color: 'var(--accent-color)', marginBottom: '1rem' }}>DevOps Intern</h4>
                       <ul style={{ listStyle: 'none' }}>
@@ -268,6 +283,31 @@ function App() {
                         <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)', marginTop: '0.75rem' }}>
                           <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
                           <span>Ensured system reliability and visibility by building out comprehensive monitoring and visualization dashboards using Prometheus and Grafana.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="timeline-item">
+                      <div className="timeline-dot"></div>
+                      <span className="timeline-tag">Oct 2025 – Dec 2025</span>
+                      <h3>SARSE Technologies</h3>
+                      <h4 style={{ color: 'var(--accent-color)', marginBottom: '1rem' }}>Testing Intern</h4>
+                      <ul style={{ listStyle: 'none' }}>
+                        <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)' }}>
+                          <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
+                          <span>Tested the VOTO Ecommerce Web Application to ensure smooth functionality and a seamless user experience.</span>
+                        </li>
+                        <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)', marginTop: '0.75rem' }}>
+                          <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
+                          <span>Created and executed test cases for product browsing, cart, checkout, and payment flows.</span>
+                        </li>
+                        <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)', marginTop: '0.75rem' }}>
+                          <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
+                          <span>Identified and reported bugs, collaborating with developers to resolve issues efficiently.</span>
+                        </li>
+                        <li style={{ display: 'flex', gap: '0.5rem', alignItems: 'start', color: 'var(--text-muted)', marginTop: '0.75rem' }}>
+                          <ChevronRight size={18} style={{ color: 'var(--accent-color)', flexShrink: 0, marginTop: '2px' }} />
+                          <span>Performed re-testing to verify all fixes were stable and deployment-ready.</span>
                         </li>
                       </ul>
                     </div>
@@ -321,7 +361,7 @@ function App() {
                 <div className="section-header">
                   <span className="section-label">Portfolio</span>
                   <h2 className="section-title">Technical Projects</h2>
-                  <p style={{ marginTop: '1rem', color: 'var(--text-muted)' }}>
+                  <p style={{ marginTop: '1rem', marginBottom: '4rem', color: 'var(--text-muted)' }}>
                     Each of these projects is fully containerized using Docker to ensure portable and production-ready deployments.
                   </p>
                 </div>
@@ -515,6 +555,7 @@ function App() {
 
         </footer>
       </div>
+      <MiniTetris />
     </>
   );
 }

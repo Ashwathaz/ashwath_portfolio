@@ -1,46 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
 
 :root {
-  /* DevOps Theme (Default Dark) */
-  --bg-color: #020617;
-  --text-main: #f8fafc;
-  --text-muted: #94a3b8;
-  --card-bg: rgba(15, 23, 42, 0.6);
-  --card-border: rgba(255, 255, 255, 0.08);
-  --accent-color: #38bdf8;
-  --accent-hover: #7dd3fc;
-  --accent-glow: rgba(56, 189, 248, 0.3);
-  --gradient-1: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  /* Cyber Vibe Theme (Default Dark) */
+  --bg-color: #05050A;
+  --text-main: #e2e8f0;
+  --text-muted: #8b949e;
+  --card-bg: rgba(18, 16, 28, 0.65);
+  --card-border: rgba(0, 229, 255, 0.15);
+  --accent-color: #00E5FF;
+  --accent-hover: #00FFFF;
+  --accent-glow: rgba(0, 229, 255, 0.4);
+  --gradient-1: linear-gradient(135deg, #00E5FF 0%, #D500F9 100%);
   --gradient-bg:
-    radial-gradient(circle at 10% 10%, #172554 0%, transparent 60%),
-    radial-gradient(circle at 90% 90%, #172554 0%, transparent 60%);
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-  --shadow-lg: 0 25px 60px -15px rgba(0, 0, 0, 0.5);
-  --nav-bg: rgba(2, 6, 23, 0.8);
-  --badge-bg: rgba(56, 189, 248, 0.1);
+    radial-gradient(circle at 15% 50%, rgba(213, 0, 249, 0.12) 0%, transparent 60%),
+    radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.12) 0%, transparent 60%);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
+  --nav-bg: rgba(5, 5, 10, 0.85);
+  --badge-bg: rgba(0, 229, 255, 0.1);
 }
 
 [data-theme='personal'] {
-  /* Personal Theme (Light) */
-  --bg-color: #fdfbf7;
-  --text-main: #0f172a;
-  --text-muted: #64748b;
-  --card-bg: rgba(255, 255, 255, 0.75);
-  --card-border: rgba(15, 23, 42, 0.08);
-  --accent-color: #f43f5e;
-  --accent-hover: #fb7185;
-  --accent-glow: rgba(244, 63, 94, 0.2);
-  --gradient-1: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+  /* Matcha/Sakura Vibe Theme (Light) */
+  --bg-color: #FAFAFA;
+  --text-main: #2D3748;
+  --text-muted: #718096;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(255, 107, 158, 0.2);
+  --accent-color: #FF6B9E;
+  --accent-hover: #FF85AF;
+  --accent-glow: rgba(255, 107, 158, 0.3);
+  --gradient-1: linear-gradient(135deg, #FF6B9E 0%, #00C9A7 100%);
   --gradient-bg:
-    radial-gradient(circle at top right, #fff1f2, transparent 60%),
-    radial-gradient(circle at bottom left, #fdf4ea, transparent 60%),
-    radial-gradient(circle at 50% 50%, #f0fdf4, transparent 50%);
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 30px 60px -12px rgba(0, 0, 0, 0.08);
-  --nav-bg: rgba(253, 251, 247, 0.85);
-  --badge-bg: rgba(244, 63, 94, 0.08);
+    radial-gradient(circle at top right, rgba(255, 107, 158, 0.1) 0%, transparent 60%),
+    radial-gradient(circle at bottom left, rgba(0, 201, 167, 0.1) 0%, transparent 60%),
+    radial-gradient(circle at 50% 50%, rgba(132, 94, 194, 0.05) 0%, transparent 50%);
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 30px -5px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 30px 60px -12px rgba(0, 0, 0, 0.1);
+  --nav-bg: rgba(250, 250, 250, 0.85);
+  --badge-bg: rgba(255, 107, 158, 0.1);
 }
 
 * {
@@ -55,10 +55,11 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 17px; /* +1 base size for Crimson Text scale */
 }
 
 body {
-  font-family: 'Inter', 'Outfit', sans-serif;
+  font-family: 'Crimson Text', serif;
   background-color: var(--bg-color);
   background-image: var(--gradient-bg);
   background-attachment: fixed;
@@ -135,7 +136,7 @@ body::before {
 .shape-2 {
   width: 35vw;
   height: 35vw;
-  background: #6366f1;
+  background: #D500F9;
   bottom: -5vw;
   left: -5vw;
   opacity: 0.1;
@@ -145,7 +146,7 @@ body::before {
 .shape-3 {
   width: 25vw;
   height: 25vw;
-  background: #a855f7;
+  background: #651FFF;
   top: 40%;
   left: 20%;
   opacity: 0.08;
@@ -172,7 +173,7 @@ body::before {
 }
 
 [data-theme='personal'] .shape-2 {
-  background: #fb923c;
+  background: #00C9A7;
   opacity: 0.25;
   width: 35vw;
   height: 35vw;
@@ -180,7 +181,7 @@ body::before {
 }
 
 [data-theme='personal'] .shape-3 {
-  background: #38bdf8;
+  background: #845EC2;
   opacity: 0.2;
   width: 30vw;
   height: 30vw;
@@ -552,40 +553,22 @@ section {
   grid-template-columns: repeat(3, 1fr);
 }
 
-@media (max-width: 992px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+/* Enforced Desktop Layout */
 
-  .grid-cols-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.mobile-hint {
+  display: none;
+}
 
-  .hero-stats {
-    justify-content: center;
+@media (pointer: coarse) {
+  .mobile-hint {
+    display: block;
+    animation: fadeIn 1s ease 1s both;
   }
-
-  .btn-group {
-    justify-content: center;
+  .desktop-only-widget {
+    display: none !important;
   }
 }
 
-@media (max-width: 768px) {
-
-  .grid-cols-2,
-  .grid-cols-3 {
-    grid-template-columns: 1fr;
-  }
-
-  h1 {
-    font-size: 3.5rem;
-  }
-
-  header {
-    padding: 0 1rem;
-  }
-}
 
 /* Personal Mode Specials */
 .gaming-grid {

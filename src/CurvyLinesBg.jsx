@@ -21,7 +21,7 @@ const CurvyLinesBg = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
             // Personal theme accent color with very low opacity
-            ctx.strokeStyle = 'rgba(244, 63, 94, 0.15)'; 
+            ctx.strokeStyle = 'rgba(255, 107, 158, 0.15)'; 
             ctx.lineWidth = 1.5;
 
             const lineSpacing = 30;

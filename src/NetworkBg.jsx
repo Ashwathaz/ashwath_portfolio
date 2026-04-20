@@ -12,12 +12,12 @@ const NetworkBg = ({ theme }) => {
         // Theme colors
         const colors = {
             devops: {
-                particle: 'rgba(56, 189, 248, 0.8)',
-                line: 'rgba(56, 189, 248,'
+                particle: 'rgba(0, 229, 255, 0.8)',
+                line: 'rgba(0, 229, 255,'
             },
             personal: {
-                particle: 'rgba(244, 63, 94, 0.8)',
-                line: 'rgba(244, 63, 94,'
+                particle: 'rgba(255, 107, 158, 0.8)',
+                line: 'rgba(255, 107, 158,'
             }
         };
 
